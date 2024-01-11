@@ -52,6 +52,7 @@ defmodule ShppdWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
+        container: {:div, class: "h-full"},
         layout: {ShppdWeb.Layouts, :app}
 
       unquote(html_helpers())
@@ -83,12 +84,13 @@ defmodule ShppdWeb do
     quote do
       # HTML escaping functionality
       import Phoenix.HTML
-      # Core UI components and translation
-      import ShppdWeb.CoreComponents
+      # Translation
       import ShppdWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
+      # Alias for common components
+      alias ShppdWeb.CoreComponents
 
       # Routes generation with the ~p sigil
       unquote(verified_routes())

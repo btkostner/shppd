@@ -3,6 +3,6 @@ defmodule ShppdWeb.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")
-    assert html_response(conn, 200) =~ "Peace of mind from prototype to production"
+    assert html_response(conn, 200) =~ "a nicer way to track your packages"
   end
 end
