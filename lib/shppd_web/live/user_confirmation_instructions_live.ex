@@ -6,23 +6,19 @@ defmodule ShppdWeb.UserConfirmationInstructionsLive do
   def render(assigns) do
     ~H"""
     <div class="mx-auto max-w-sm">
-      <CoreComponents.header class="text-center">
+      <Components.header class="text-center">
         No confirmation instructions received?
         <:subtitle>We'll send a new confirmation link to your inbox</:subtitle>
-      </CoreComponents.header>
+      </Components.header>
 
-      <CoreComponents.simple_form
-        for={@form}
-        id="resend_confirmation_form"
-        phx-submit="send_instructions"
-      >
-        <CoreComponents.input field={@form[:email]} type="email" placeholder="Email" required />
+      <Components.simple_form for={@form} id="resend_confirmation_form" phx-submit="send_instructions">
+        <Components.input field={@form[:email]} type="email" placeholder="Email" required />
         <:actions>
-          <CoreComponents.button phx-disable-with="Sending..." class="w-full">
+          <Components.button phx-disable-with="Sending..." class="w-full">
             Resend confirmation instructions
-          </CoreComponents.button>
+          </Components.button>
         </:actions>
-      </CoreComponents.simple_form>
+      </Components.simple_form>
 
       <p class="mt-4 text-center">
         <.link href={~p"/register"}>Register</.link> | <.link href={~p"/login"}>Log in</.link>

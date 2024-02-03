@@ -6,19 +6,19 @@ defmodule ShppdWeb.UserForgotPasswordLive do
   def render(assigns) do
     ~H"""
     <div class="mx-auto max-w-sm">
-      <CoreComponents.header class="text-center">
+      <Components.header class="text-center">
         Forgot your password?
         <:subtitle>We'll send a password reset link to your inbox</:subtitle>
-      </CoreComponents.header>
+      </Components.header>
 
-      <CoreComponents.simple_form for={@form} id="reset_password_form" phx-submit="send_email">
-        <CoreComponents.input field={@form[:email]} type="email" placeholder="Email" required />
+      <Components.simple_form for={@form} id="reset_password_form" phx-submit="send_email">
+        <Components.input field={@form[:email]} type="email" placeholder="Email" required />
         <:actions>
-          <CoreComponents.button phx-disable-with="Sending..." class="w-full">
+          <Components.button phx-disable-with="Sending..." class="w-full">
             Send password reset instructions
-          </CoreComponents.button>
+          </Components.button>
         </:actions>
-      </CoreComponents.simple_form>
+      </Components.simple_form>
       <p class="mt-4 text-center text-sm">
         <.link href={~p"/register"}>Register</.link> | <.link href={~p"/login"}>Log in</.link>
       </p>

@@ -4,7 +4,7 @@ defmodule ShppdWeb.UserLoginLive do
   def render(assigns) do
     ~H"""
     <div class="mx-auto max-w-sm">
-      <CoreComponents.header class="text-center">
+      <Components.header class="text-center">
         Sign in to account
         <:subtitle>
           Don't have an account?
@@ -13,24 +13,24 @@ defmodule ShppdWeb.UserLoginLive do
           </.link>
           for an account now.
         </:subtitle>
-      </CoreComponents.header>
+      </Components.header>
 
-      <CoreComponents.simple_form for={@form} id="login_form" action={~p"/login"} phx-update="ignore">
-        <CoreComponents.input field={@form[:email]} type="email" label="Email" required />
-        <CoreComponents.input field={@form[:password]} type="password" label="Password" required />
+      <Components.simple_form for={@form} id="login_form" action={~p"/login"} phx-update="ignore">
+        <Components.input field={@form[:email]} type="email" label="Email" required />
+        <Components.input field={@form[:password]} type="password" label="Password" required />
 
         <:actions>
-          <CoreComponents.input field={@form[:remember_me]} type="checkbox" label="Keep me logged in" />
+          <Components.input field={@form[:remember_me]} type="checkbox" label="Keep me logged in" />
           <.link href={~p"/reset-password"} class="text-sm font-semibold">
             Forgot your password?
           </.link>
         </:actions>
         <:actions>
-          <CoreComponents.button phx-disable-with="Signing in..." class="w-full">
+          <Components.button phx-disable-with="Signing in..." class="w-full">
             Sign in <span aria-hidden="true">→</span>
-          </CoreComponents.button>
+          </Components.button>
         </:actions>
-      </CoreComponents.simple_form>
+      </Components.simple_form>
     </div>
     """
   end

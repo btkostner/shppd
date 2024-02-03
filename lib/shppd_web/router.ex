@@ -61,6 +61,10 @@ defmodule ShppdWeb.Router do
       on_mount: [{ShppdWeb.UserAuth, :ensure_authenticated}] do
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm-email/:token", UserSettingsLive, :confirm_email
+
+      live "/packages", PackageLive.Index, :index
+      live "/packages/new", PackageLive.Index, :new
+      live "/packages/:id", PackageLive.Index, :show
     end
   end
 

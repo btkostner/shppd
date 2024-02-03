@@ -7,7 +7,7 @@ defmodule ShppdWeb.UserRegistrationLive do
   def render(assigns) do
     ~H"""
     <div class="mx-auto max-w-sm">
-      <CoreComponents.header class="text-center">
+      <Components.header class="text-center">
         Register for an account
         <:subtitle>
           Already registered?
@@ -16,9 +16,9 @@ defmodule ShppdWeb.UserRegistrationLive do
           </.link>
           to your account now.
         </:subtitle>
-      </CoreComponents.header>
+      </Components.header>
 
-      <CoreComponents.simple_form
+      <Components.simple_form
         for={@form}
         id="registration_form"
         phx-submit="save"
@@ -27,19 +27,19 @@ defmodule ShppdWeb.UserRegistrationLive do
         action={~p"/login?_action=registered"}
         method="post"
       >
-        <CoreComponents.error :if={@check_errors}>
+        <Components.error :if={@check_errors}>
           Oops, something went wrong! Please check the errors below.
-        </CoreComponents.error>
+        </Components.error>
 
-        <CoreComponents.input field={@form[:email]} type="email" label="Email" required />
-        <CoreComponents.input field={@form[:password]} type="password" label="Password" required />
+        <Components.input field={@form[:email]} type="email" label="Email" required />
+        <Components.input field={@form[:password]} type="password" label="Password" required />
 
         <:actions>
-          <CoreComponents.button phx-disable-with="Creating account..." class="w-full">
+          <Components.button phx-disable-with="Creating account..." class="w-full">
             Create an account
-          </CoreComponents.button>
+          </Components.button>
         </:actions>
-      </CoreComponents.simple_form>
+      </Components.simple_form>
     </div>
     """
   end

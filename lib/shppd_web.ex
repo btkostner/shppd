@@ -70,6 +70,7 @@ defmodule ShppdWeb do
   def html do
     quote do
       use Phoenix.Component
+      import ShppdWeb.CoreComponents
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -90,7 +91,7 @@ defmodule ShppdWeb do
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
       # Alias for common components
-      alias ShppdWeb.CoreComponents
+      alias ShppdWeb.Components
 
       # Routes generation with the ~p sigil
       unquote(verified_routes())

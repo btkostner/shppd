@@ -58,21 +58,15 @@
       <p class="mt-6 text-lg leading-8 text-gray-600">
         Are you tired of the unpredictability surrounding your package tracking? Do you wish there was a simple and easy way to track your packages? Say hello to Shppd – the simple package tracking app that just works&trade;.
       </p>
-      <div class="mt-10 flex items-center gap-x-6">
+      <div class="mt-10 flex items-center">
         <%= if @current_user do %>
-          <.link
-            href={~p"/users/settings"}
-            class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
+          <Components.button href={~p"/users/settings"}>
             Dashboard
-          </.link>
+          </Components.button>
         <% else %>
-          <.link
-            href={~p"/users/register"}
-            class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
+          <Components.button href={~p"/register"}>
             Create an Account
-          </.link>
+          </Components.button>
         <% end %>
       </div>
     </div>

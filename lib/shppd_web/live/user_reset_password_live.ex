@@ -6,31 +6,31 @@ defmodule ShppdWeb.UserResetPasswordLive do
   def render(assigns) do
     ~H"""
     <div class="mx-auto max-w-sm">
-      <CoreComponents.header class="text-center">Reset Password</CoreComponents.header>
+      <Components.header class="text-center">Reset Password</Components.header>
 
-      <CoreComponents.simple_form
+      <Components.simple_form
         for={@form}
         id="reset_password_form"
         phx-submit="reset_password"
         phx-change="validate"
       >
-        <CoreComponents.error :if={@form.errors != []}>
+        <Components.error :if={@form.errors != []}>
           Oops, something went wrong! Please check the errors below.
-        </CoreComponents.error>
+        </Components.error>
 
-        <CoreComponents.input field={@form[:password]} type="password" label="New password" required />
-        <CoreComponents.input
+        <Components.input field={@form[:password]} type="password" label="New password" required />
+        <Components.input
           field={@form[:password_confirmation]}
           type="password"
           label="Confirm new password"
           required
         />
         <:actions>
-          <CoreComponents.button phx-disable-with="Resetting..." class="w-full">
+          <Components.button phx-disable-with="Resetting..." class="w-full">
             Reset Password
-          </CoreComponents.button>
+          </Components.button>
         </:actions>
-      </CoreComponents.simple_form>
+      </Components.simple_form>
 
       <p class="mt-4 text-center text-sm">
         <.link href={~p"/register"}>Register</.link> | <.link href={~p"/login"}>Log in</.link>

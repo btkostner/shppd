@@ -42,13 +42,20 @@
       </.link>
     </div>
 
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-6">
       <%= if @current_user do %>
-        <.link href={~p"/users/settings"} class="text-sm font-semibold leading-6 text-gray-900">
-          Dashboard <span aria-hidden="true">&rarr;</span>
+        <.link
+          href={~p"/logout"}
+          method="delete"
+          class="text-sm font-semibold leading-6 text-gray-900"
+        >
+          Log Out
+        </.link>
+        <.link href={~p"/packages"} class="text-sm font-semibold leading-6 text-gray-900">
+          Packages <span aria-hidden="true">&rarr;</span>
         </.link>
       <% else %>
-        <.link href={~p"/users/log_in"} class="text-sm font-semibold leading-6 text-gray-900">
+        <.link href={~p"/login"} class="text-sm font-semibold leading-6 text-gray-900">
           Log In <span aria-hidden="true">&rarr;</span>
         </.link>
       <% end %>
@@ -106,14 +113,21 @@
           <div class="py-6">
             <%= if @current_user do %>
               <.link
-                href={~p"/users/settings"}
+                href={~p"/packages"}
                 class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
-                Dashboard
+                Packages
+              </.link>
+              <.link
+                href={~p"/logout"}
+                method="delete"
+                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+              >
+                Log Out
               </.link>
             <% else %>
               <.link
-                href={~p"/users/log_in"}
+                href={~p"/login"}
                 class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
                 Log In
@@ -127,7 +141,7 @@
 </header>
 
 <main>
-  <CoreComponents.flash_group flash={@flash} />
+  <Components.flash_group flash={@flash} />
 
   <%= @inner_content %>
 </main>

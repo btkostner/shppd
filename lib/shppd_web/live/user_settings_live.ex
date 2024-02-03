@@ -5,76 +5,78 @@ defmodule ShppdWeb.UserSettingsLive do
 
   def render(assigns) do
     ~H"""
-    <CoreComponents.header class="text-center">
-      Account Settings
-      <:subtitle>Manage your account email address and password settings</:subtitle>
-    </CoreComponents.header>
+    <div class="mx-auto max-w-4xl px-4 py-12">
+      <Components.header class="text-center">
+        Account Settings
+        <:subtitle>Manage your account email address and password settings</:subtitle>
+      </Components.header>
 
-    <div class="space-y-12 divide-y">
-      <div>
-        <CoreComponents.simple_form
-          for={@email_form}
-          id="email_form"
-          phx-submit="update_email"
-          phx-change="validate_email"
-        >
-          <CoreComponents.input field={@email_form[:email]} type="email" label="Email" required />
-          <CoreComponents.input
-            field={@email_form[:current_password]}
-            name="current_password"
-            id="current_password_for_email"
-            type="password"
-            label="Current password"
-            value={@email_form_current_password}
-            required
-          />
-          <:actions>
-            <CoreComponents.button phx-disable-with="Changing...">Change Email</CoreComponents.button>
-          </:actions>
-        </CoreComponents.simple_form>
-      </div>
-      <div>
-        <CoreComponents.simple_form
-          for={@password_form}
-          id="password_form"
-          action={~p"/login?_action=password_updated"}
-          method="post"
-          phx-change="validate_password"
-          phx-submit="update_password"
-          phx-trigger-action={@trigger_submit}
-        >
-          <CoreComponents.input
-            field={@password_form[:email]}
-            type="hidden"
-            id="hidden_user_email"
-            value={@current_email}
-          />
-          <CoreComponents.input
-            field={@password_form[:password]}
-            type="password"
-            label="New password"
-            required
-          />
-          <CoreComponents.input
-            field={@password_form[:password_confirmation]}
-            type="password"
-            label="Confirm new password"
-          />
-          <CoreComponents.input
-            field={@password_form[:current_password]}
-            name="current_password"
-            type="password"
-            label="Current password"
-            id="current_password_for_password"
-            value={@current_password}
-            required
-          />
-          <:actions>
-            <CoreComponents.button phx-disable-with="Changing...">
-              Change Password
-            </CoreComponents.button>
-          </:actions>
-        </CoreComponents.simple_form>
+      <div class="space-y-12 divide-y">
+        <div>
+          <Components.simple_form
+            for={@email_form}
+            id="email_form"
+            phx-submit="update_email"
+            phx-change="validate_email"
+          >
+            <Components.input field={@email_form[:email]} type="email" label="Email" required />
+            <Components.input
+              field={@email_form[:current_password]}
+              name="current_password"
+              id="current_password_for_email"
+              type="password"
+              label="Current password"
+              value={@email_form_current_password}
+              required
+            />
+            <:actions>
+              <Components.button phx-disable-with="Changing...">Change Email</Components.button>
+            </:actions>
+          </Components.simple_form>
+        </div>
+        <div>
+          <Components.simple_form
+            for={@password_form}
+            id="password_form"
+            action={~p"/login?_action=password_updated"}
+            method="post"
+            phx-change="validate_password"
+            phx-submit="update_password"
+            phx-trigger-action={@trigger_submit}
+          >
+            <Components.input
+              field={@password_form[:email]}
+              type="hidden"
+              id="hidden_user_email"
+              value={@current_email}
+            />
+            <Components.input
+              field={@password_form[:password]}
+              type="password"
+              label="New password"
+              required
+            />
+            <Components.input
+              field={@password_form[:password_confirmation]}
+              type="password"
+              label="Confirm new password"
+            />
+            <Components.input
+              field={@password_form[:current_password]}
+              name="current_password"
+              type="password"
+              label="Current password"
+              id="current_password_for_password"
+              value={@current_password}
+              required
+            />
+            <:actions>
+              <Components.button phx-disable-with="Changing...">
+                Change Password
+              </Components.button>
+            </:actions>
+          </Components.simple_form>
+        </div>
       </div>
     </div>
     """

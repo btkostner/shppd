@@ -6,16 +6,16 @@ defmodule ShppdWeb.UserConfirmationLive do
   def render(%{live_action: :edit} = assigns) do
     ~H"""
     <div class="mx-auto max-w-sm">
-      <CoreComponents.header class="text-center">Confirm Account</CoreComponents.header>
+      <Components.header class="text-center">Confirm Account</Components.header>
 
-      <CoreComponents.simple_form for={@form} id="confirmation_form" phx-submit="confirm_account">
-        <CoreComponents.input field={@form[:token]} type="hidden" />
+      <Components.simple_form for={@form} id="confirmation_form" phx-submit="confirm_account">
+        <Components.input field={@form[:token]} type="hidden" />
         <:actions>
-          <CoreComponents.button phx-disable-with="Confirming..." class="w-full">
+          <Components.button phx-disable-with="Confirming..." class="w-full">
             Confirm my account
-          </CoreComponents.button>
+          </Components.button>
         </:actions>
-      </CoreComponents.simple_form>
+      </Components.simple_form>
 
       <p class="mt-4 text-center">
         <.link href={~p"/register"}>Register</.link> | <.link href={~p"/login"}>Log in</.link>
