@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   sodipodi:docname="master-free.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     showguides="true"
+     inkscape:zoom="0.87827133"
+     inkscape:cx="274.97197"
+     inkscape:cy="155.41894"
+     inkscape:window-width="1800"
+     inkscape:window-height="1040"
+     inkscape:window-x="0"
+     inkscape:window-y="44"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid4"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="1"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true"
+       snapvisiblegridlinesonly="true"
+       enabled="false" />
+    <inkscape:grid
+       id="grid8"
+       units="px"
+       originx="64"
+       originy="64"
+       spacingx="4"
+       spacingy="4"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path4"
+       style="color:#000000;fill:#000000;stroke-linejoin:round;-inkscape-stroke:none;stroke:none;fill-opacity:1"
+       d="M 52 20 C 44.000016 20 36.987658 23.286102 32.521484 28.310547 C 28.055312 33.334992 26 39.722234 26 46 C 26 52.277765 28.055312 58.665008 32.521484 63.689453 C 36.987658 68.713898 44.000016 72 52 72 L 76 72 C 79.999992 72 81.98767 73.213912 83.521484 74.939453 C 85.0553 76.664994 86 79.277784 86 82 C 86 84.722216 85.0553 87.335006 83.521484 89.060547 C 81.98767 90.786088 79.999992 92 76 92 L 60 92 L 28 92 A 8.0008 8.0008 0 0 0 22.34375 94.34375 L 2.34375 114.34375 A 8 8 0 0 0 2.34375 125.65625 A 8 8 0 0 0 13.65625 125.65625 L 31.314453 108 L 60 108 L 76 108 C 83.999984 108 91.012342 104.7139 95.478516 99.689453 C 99.944688 94.665008 102 88.277766 102 82 C 102 75.722234 99.944688 69.334992 95.478516 64.310547 C 91.012342 59.286102 83.999984 56 76 56 L 52 56 C 48.000008 56 46.01233 54.786088 44.478516 53.060547 C 42.9447 51.335006 42 48.722217 42 46 C 42 43.277783 42.9447 40.664994 44.478516 38.939453 C 46.01233 37.213912 48.000008 36 52 36 L 72 36 L 76 36 L 96 36 L 108 20 L 76 20 L 72 20 L 52 20 z " />
+  </g>
+</svg>

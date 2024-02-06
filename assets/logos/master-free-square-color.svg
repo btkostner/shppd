@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       x1="1024"
+       y1="0"
+       x2="512"
+       y2="1024"
+       id="linearGradient-1"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(0.125)">
+      <stop
+         stop-color="#FDD68A"
+         offset="0%"
+         id="stop1" />
+      <stop
+         stop-color="#FBA123"
+         offset="73.3820037%"
+         id="stop2" />
+      <stop
+         stop-color="#F57E0B"
+         offset="100%"
+         id="stop3" />
+    </linearGradient>
+  </defs>
+  <g
+     id="layer1">
+    <rect
+       id="App-Icon-1024x1024"
+       fill="url(#linearGradient-1)"
+       x="0"
+       y="0"
+       width="128"
+       height="128"
+       style="fill:url(#linearGradient-1);stroke-width:0.125" />
+    <path
+       id="path4"
+       style="color:#000000;fill:#000000;stroke-linejoin:round;-inkscape-stroke:none;stroke:none;fill-opacity:1"
+       d="M 52 20 C 44.000024 20 36.987654 23.286107 32.521484 28.310547 C 28.055317 33.334987 26 39.72224 26 46 C 26 52.277759 28.055317 58.665013 32.521484 63.689453 C 36.987654 68.713893 44.000024 72 52 72 L 76 72 C 79.999988 72 81.987672 73.213914 83.521484 74.939453 C 85.055299 76.664992 86 79.277787 86 82 C 86 84.722213 85.055299 87.335008 83.521484 89.060547 C 81.987672 90.786086 79.999988 92 76 92 L 60 92 L 28 92 A 8 8 0 0 0 26.137207 92.245605 A 8.0008 8.0008 0 0 0 25.60791 92.40625 A 8 8 0 0 0 24.322266 92.938965 A 8.0008 8.0008 0 0 0 23.834473 93.199707 A 8 8 0 0 0 22.34375 94.34375 L 2.34375 114.34375 L 0 116.6875 L 0 128 L 11.3125 128 L 13.65625 125.65625 L 31.314453 108 L 60 108 L 76 108 C 83.999976 108 91.012346 104.7139 95.478516 99.689453 C 99.944683 94.665013 102 88.27776 102 82 C 102 75.72224 99.944683 69.334987 95.478516 64.310547 C 91.012346 59.286107 83.999976 56 76 56 L 52 56 C 48.000012 56 46.012328 54.786086 44.478516 53.060547 C 42.944701 51.335008 42 48.722214 42 46 C 42 43.277786 42.944701 40.664992 44.478516 38.939453 C 46.012328 37.213914 48.000012 36 52 36 L 72 36 L 76 36 L 96 36 L 108 20 L 76 20 L 72 20 L 52 20 z " />
+  </g>
+</svg>
