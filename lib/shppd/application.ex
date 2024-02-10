@@ -7,12 +7,14 @@ defmodule Shppd.Application do
 
   @impl true
   def start(_type, _args) do
+    ecto_repos = Application.fetch_env!(:shppd, :ecto_repos)
+    dns_query = Application.get_env(:shppd, :dns_cluster_query)
+
     children = [
       ShppdWeb.Telemetry,
       Shppd.Repo,
-      {Ecto.Migrator,
-       repos: Application.fetch_env!(:shppd, :ecto_repos), skip: skip_migrations?()},
-      {DNSCluster, query: Application.get_env(:shppd, :dns_cluster_query) || :ignore},
+      {Ecto.Migrator, repos: ecto_repos, skip: skip_migrations?()},
+      {DNSCluster, query: dns_query || :ignore},
       {Phoenix.PubSub, name: Shppd.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: Shppd.Finch},

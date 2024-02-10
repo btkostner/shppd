@@ -3,8 +3,6 @@ defmodule ShppdTrack.Service.FedEx do
   Tracking packages in the FedEx system.
   """
 
-  alias ShppdTrack.Http
-
   @behaviour ShppdTrack.Service
 
   @doc """
@@ -104,19 +102,88 @@ defmodule ShppdTrack.Service.FedEx do
   end
 
   @doc """
-  Returns tracking information for the package.
+  Returns tracking information for the package. This works by
+  starting a new chromedriver browser and navigating to the
+  FedEx tracking page. It then waits for the page to load. Once
+  the page is loaded, it will find the backend API network call
+  and extract the JSON response. This is to bypass requiring
+  setting up a developer account.
   """
   @impl ShppdTrack.Service
   def get_tracking_info(tracking_number) do
-    load_fn = fn page ->
-      Wallaby.Browser.has_text?(page, tracking_number)
-      Wallaby.Browser.has_text?(page, "DELIVERY STATUS")
+    with {:ok, authentication} <- fedex_authentication(),
+         {:ok, _response} <- fedex_request(tracking_number, authentication) do
+      {:ok, %ShppdTrack.Info{}}
     end
+  end
 
-    with {:ok, response} <- tracking_number |> tracking_url() |> Http.get(load_fn),
-         {:ok, html} <- Floki.parse_document(response) do
-      status = Floki.find(html, "trk-shared-shipment-delivery-status") |> Floki.text(deep: true)
-      {:ok, status}
+  defp fedex_request(tracking_number, authentication) do
+    config = Application.get_env(:shppd, __MODULE__)
+
+    host =
+      if Keyword.get(config, :production_environment?),
+        do: "https://apis.fedex.com/track/v1/trackingnumbers",
+        else: "https://apis-sandbox.fedex.com/track/v1/trackingnumbers"
+
+    request =
+      Req.new(
+        body:
+          Jason.encode!(%{
+            trackingInfo: [
+              %{
+                trackingNumberInfo: %{
+                  trackingNumber: tracking_number
+                }
+              }
+            ],
+            includeDetailedScans: true
+          }),
+        headers: [
+          {"Content-Type", "application/json"},
+          {"Authorization", "Bearer #{authentication}"},
+          {"x-locale", "en_US"}
+        ],
+        method: :get,
+        url: host
+      )
+
+    with {:ok, response} <- Req.get(request) do
+      IO.inspect(response, label: "response")
+
+      if response.status != 200 do
+        {:error, hd(response.body["errors"])["message"]}
+      else
+        {:ok, response.body}
+      end
+    end
+  end
+
+  @spec fedex_authentication() :: {:ok, String.t()} | {:error, term()}
+  defp fedex_authentication() do
+    config = Application.get_env(:shppd, __MODULE__)
+
+    host =
+      if Keyword.get(config, :production_environment?),
+        do: "https://apis.fedex.com/oauth/token",
+        else: "https://apis-sandbox.fedex.com/oauth/token"
+
+    request =
+      Req.new(
+        body:
+          URI.encode_query(
+            grant_type: "client_credentials",
+            client_id: Keyword.get(config, :api_key),
+            client_secret: Keyword.get(config, :api_secret)
+          ),
+        headers: [
+          {"Content-Type", "application/x-www-form-urlencoded"}
+        ],
+        method: :post,
+        url: host
+      )
+
+    with {:ok, response} <- Req.post(request) do
+      {:ok, response.body["access_token"]}
     end
   end
 end

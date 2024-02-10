@@ -24,5 +24,6 @@ defmodule ShppdTrack.Service do
   @doc """
   Returns tracking information for the package.
   """
-  @callback get_tracking_info(ShppdTrack.tracking_number()) :: :ok | :error
+  @callback get_tracking_info(ShppdTrack.tracking_number()) ::
+              {:ok, ShppdTrack.Info.t()} | {:error, term()}
 end

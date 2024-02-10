@@ -4,9 +4,9 @@ defmodule Shppd.Accounts do
   """
 
   import Ecto.Query, warn: false
-  alias Shppd.Repo
 
   alias Shppd.Accounts.{User, UserToken, UserNotifier}
+  alias Shppd.Repo
 
   ## Database getters
 

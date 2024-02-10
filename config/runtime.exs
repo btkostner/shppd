@@ -20,6 +20,21 @@ if System.get_env("PHX_SERVER") do
   config :shppd, ShppdWeb.Endpoint, server: true
 end
 
+# ## Tracking services
+#
+# This section is dedicated to various package services where we need
+# credentials to use their API.
+if System.get_env("FEDEX_API_KEY") do
+  config :shppd, ShppdTrack.Service.FedEx,
+    production_environment?: System.get_env("FEDEX_PRODUCTION_ENVIRONMENT", "false") == "true",
+    api_key: System.get_env("FEDEX_API_KEY"),
+    api_secret: System.get_env("FEDEX_API_SECRET")
+end
+
+# ## Production configuration
+#
+# This section is all about production release configuration. It's used
+# for Docker.
 if config_env() == :prod do
   database_path =
     System.get_env("DATABASE_PATH") ||
@@ -44,7 +59,7 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
-  host = System.get_env("PHX_HOST") || "example.com"
+  host = System.get_env("HOST") || "example.com"
   port = String.to_integer(System.get_env("PORT") || "4000")
 
   config :shppd, :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY")

@@ -55,10 +55,11 @@ defmodule ShppdTrack do
   If no service can be found, or if the tracking number
   can not be found, `nil` will be returned.
   """
-  @spec get_tracking_info(tracking_number()) :: nil | ShppdTrack.Info.t()
+  @spec get_tracking_info(tracking_number()) :: {:ok, ShppdTrack.Info.t()} | {:error, term()}
   def get_tracking_info(tracking_number) do
-    with service when is_atom(service) <- get_tracking_number_service(tracking_number) do
-      service.get_tracking_info(tracking_number)
+    case get_tracking_number_service(tracking_number) do
+      nil -> {:error, "No service found for tracking number"}
+      service -> service.get_tracking_info(tracking_number)
     end
   end
 
@@ -66,7 +67,8 @@ defmodule ShppdTrack do
   Gets tracking information from the specified service.
   It will return `nil` if the package can not be found.
   """
-  @spec get_tracking_info(service(), tracking_number()) :: nil | ShppdTrack.Info.t()
+  @spec get_tracking_info(service(), tracking_number()) ::
+          {:ok, ShppdTrack.Info.t()} | {:error, term()}
   def get_tracking_info(service, tracking_number) when is_atom(service) do
     service.get_tracking_info(tracking_number)
   end

@@ -52,12 +52,12 @@ defmodule Shppd.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.20.1"},
       {:phoenix, "~> 1.7.10"},
+      {:req, "~> 0.4.0"},
       {:swoosh, "~> 1.3"},
       {:tailwind_formatter, "~> 0.4", only: :dev, runtime: false},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:telemetry_metrics, "~> 0.6"},
-      {:telemetry_poller, "~> 1.0"},
-      {:wallaby, "~> 0.30"}
+      {:telemetry_poller, "~> 1.0"}
     ]
   end
 
@@ -90,11 +90,15 @@ defmodule Shppd.MixProject do
       main: "readme",
       extras: [
         "README.md": [filename: "readme", title: "Readme"],
-        "documentation/alternatives.md": [filename: "alternatives", title: "Alternatives"],
+        "documentation/running.md": [filename: "running", title: "Running"],
+        "documentation/alternatives.md": [filename: "alternatives", title: "Alternatives"]
+      ],
+      groups_for_extras: [
+        "Services": Path.wildcard("documentation/services/*.md")
       ],
       homepage_url: "https://documentation.shppd.app",
-      source_url: "https://github.com/btkostner/shppd",
-      nest_modules_by_prefix: [Shppd, ShppdTrack, ShppdWeb]
+      nest_modules_by_prefix: [Shppd, ShppdTrack, ShppdWeb],
+      source_url: "https://github.com/btkostner/shppd"
     ]
   end
 end
